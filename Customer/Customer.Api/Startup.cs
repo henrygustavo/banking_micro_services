@@ -10,7 +10,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-
+    using System;
 
     public class Startup
     {
@@ -23,8 +23,11 @@
 
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING") ??
+                                      Configuration.GetConnectionString("DefaultConnection");
+
             services.AddDbContext<CustomerContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(connectionString));
             
             services.AddScoped<ICustomerApplicationService, CustomerApplicationService>();
             

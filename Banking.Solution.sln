@@ -7,23 +7,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{58
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{28C4EB9F-990C-44B1-8ACE-A57EBCD0EAE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Api", "Customer\Customer.Api\Customer.Api.csproj", "{68863B9B-69BE-4D8A-BE09-9F6A6E0A0B3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Api", "Customer\Customer.Api\Customer.Api.csproj", "{68863B9B-69BE-4D8A-BE09-9F6A6E0A0B3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Application", "Customer\Customer.Application\Customer.Application.csproj", "{A0B9F019-E0F6-4F04-A2C5-0EA5BED1DEC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Application", "Customer\Customer.Application\Customer.Application.csproj", "{A0B9F019-E0F6-4F04-A2C5-0EA5BED1DEC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Domain", "Customer\Customer.Domain\Customer.Domain.csproj", "{19CF3AE5-A3EA-4347-8651-486EE7C0A40C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Domain", "Customer\Customer.Domain\Customer.Domain.csproj", "{19CF3AE5-A3EA-4347-8651-486EE7C0A40C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.WebApi", "Identity\Identity.WebApi\Identity.WebApi.csproj", "{63532321-2767-470D-B79F-4A0145CE3922}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.WebApi", "Identity\Identity.WebApi\Identity.WebApi.csproj", "{63532321-2767-470D-B79F-4A0145CE3922}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Infrastructure", "Customer\Customer.Infrastructure\Customer.Infrastructure.csproj", "{2441514F-0EC8-4E01-93E2-3BC461EFFC44}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4B9D1D33-DC92-410A-A3F8-26177AC85E17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Domain", "Common\Common.Domain\Common.Domain.csproj", "{FA63D339-86F5-4A67-B4EB-293C6CBF69EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Domain", "Common\Common.Domain\Common.Domain.csproj", "{FA63D339-86F5-4A67-B4EB-293C6CBF69EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Infrastructure", "Common\Common.Infrastructure\Common.Infrastructure.csproj", "{2FA265C6-9E17-4E10-8202-3A2E34858832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure", "Common\Common.Infrastructure\Common.Infrastructure.csproj", "{2FA265C6-9E17-4E10-8202-3A2E34858832}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Application", "Common\Common.Application\Common.Application.csproj", "{C380AD46-D6B4-40E9-9A88-83A2AA855DBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Application", "Common\Common.Application\Common.Application.csproj", "{C380AD46-D6B4-40E9-9A88-83A2AA855DBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{285D718F-526E-48A4-920C-3DAF9C90A474}"
+	ProjectSection(SolutionItems) = preProject
+		customer-docker-file = customer-docker-file
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +74,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{28C4EB9F-990C-44B1-8ACE-A57EBCD0EAE1} = {285D718F-526E-48A4-920C-3DAF9C90A474}
 		{68863B9B-69BE-4D8A-BE09-9F6A6E0A0B3A} = {5827EF06-DAB4-4914-A2F7-08734FEAD0E6}
 		{A0B9F019-E0F6-4F04-A2C5-0EA5BED1DEC7} = {5827EF06-DAB4-4914-A2F7-08734FEAD0E6}
 		{19CF3AE5-A3EA-4347-8651-486EE7C0A40C} = {5827EF06-DAB4-4914-A2F7-08734FEAD0E6}

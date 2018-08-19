@@ -1,0 +1,36 @@
+version: "3.2"
+
+networks:
+  frontend:
+  backend:
+
+
+services:
+
+  customer:
+    image: banking/customer
+    build: 
+      context: .
+      dockerfile: ./customer-docker-file
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development 
+      - CONNECTION_STRING=Server=mssqlserver;Database=bankingdb;User Id=sa;Password=Str0ngPassword!;MultipleActiveResultSets=true
+    container_name: customerapi
+    ports:
+      - "5100:80"
+    networks:
+      - backend
+      - frontend 
+    depends_on:
+      - mssqlserver
+      
+  mssqlserver:
+    image: "microsoft/mssql-server-linux"
+    container_name: mssqldata
+    ports:
+      - "1402:1433" 
+    networks:
+      - backend
+    environment:
+      - SA_PASSWORD=Str0ngPassword!
+      - ACCEPT_EULA="Y"
