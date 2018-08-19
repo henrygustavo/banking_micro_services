@@ -16,19 +16,12 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Customer.Api": {
-      "commandName": "Project",
+    "Production": {
+      "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/customers",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:57492/"
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://localhost:{ServicePort}/api/customers"
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
     }
   }
 }

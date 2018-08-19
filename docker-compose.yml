@@ -13,8 +13,7 @@ services:
       context: .
       dockerfile: ./customer-docker-file
     environment: 
-      - ASPNETCORE_ENVIRONMENT=Development 
-      - CONNECTION_STRING=Server=mssqlserver;Database=bankingdb;User Id=sa;Password=Str0ngPassword!;MultipleActiveResultSets=true
+      - ASPNETCORE_ENVIRONMENT=Production
     container_name: customerapi
     ports:
       - "5100:80"

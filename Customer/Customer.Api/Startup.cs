@@ -23,11 +23,8 @@
 
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING") ??
-                                      Configuration.GetConnectionString("DefaultConnection");
-
             services.AddDbContext<CustomerContext>(options =>
-            options.UseSqlServer(connectionString));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
             services.AddScoped<ICustomerApplicationService, CustomerApplicationService>();
             
