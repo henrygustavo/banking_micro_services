@@ -1,6 +1,6 @@
-﻿namespace Common.Infrastructure.Repository
+﻿namespace Customer.Infrastructure.Repository
 {
-    using Common.Domain.Repository;
+    using Customer.Domain.Repository;
     using Microsoft.EntityFrameworkCore;
     using System.Collections.Generic;
     using System.Linq;

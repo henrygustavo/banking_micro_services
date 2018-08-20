@@ -1,7 +1,5 @@
 ﻿namespace Customer.Domain.Entity
 {
-    using Common.Domain.Entity;
-
     public class Customer: BaseEntity
     {
         public string Dni { get; set; }

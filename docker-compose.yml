@@ -10,8 +10,8 @@ services:
   customer:
     image: banking/customer
     build: 
-      context: .
-      dockerfile: ./customer-docker-file
+      context: ./customer
+      dockerfile: Dockerfile
     environment: 
       - ASPNETCORE_ENVIRONMENT=Production
     container_name: customerapi

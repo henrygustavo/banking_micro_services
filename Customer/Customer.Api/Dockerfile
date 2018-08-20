@@ -7,10 +7,7 @@ WORKDIR /src
 COPY ["Customer/Customer.Api/Customer.Api.csproj", "Customer/Customer.Api/"]
 COPY ["Customer/Customer.Infrastructure/Customer.Infrastructure.csproj", "Customer/Customer.Infrastructure/"]
 COPY ["Customer/Customer.Domain/Customer.Domain.csproj", "Customer/Customer.Domain/"]
-COPY ["Common/Common.Domain/Common.Domain.csproj", "Common/Common.Domain/"]
-COPY ["Common/Common.Infrastructure/Common.Infrastructure.csproj", "Common/Common.Infrastructure/"]
 COPY ["Customer/Customer.Application/Customer.Application.csproj", "Customer/Customer.Application/"]
-COPY ["Common/Common.Application/Common.Application.csproj", "Common/Common.Application/"]
 RUN dotnet restore "Customer/Customer.Api/Customer.Api.csproj"
 COPY . .
 WORKDIR "/src/Customer/Customer.Api"

@@ -1,6 +1,6 @@
-﻿namespace Common.Application.Service
+﻿namespace Customer.Application.Service
 {
-    using Common.Application.Dto;
+    using Customer.Application.Dto;
     using System.Collections.Generic;
 
     public interface IBaseApplicationService<TEntityInput, TEntityOutPut>

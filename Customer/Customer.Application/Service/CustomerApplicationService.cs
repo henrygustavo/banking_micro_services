@@ -1,20 +1,19 @@
 ﻿namespace Customer.Application.Service
 {
     using AutoMapper;
-    using Common.Application.Dto;
     using Customer.Application.Dto;
-    using Customer.Domain.Repository;
     using Customer.Domain.Service;
     using Customer.Domain.Entity;
     using System.Collections.Generic;
     using System.Linq;
+    using Customer.Domain.Repository;
 
     public class CustomerApplicationService : ICustomerApplicationService
     {
-        private readonly ICustomerUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         private readonly ICustomerDomainService _customerDomainService;
-        public CustomerApplicationService(ICustomerUnitOfWork unitOfWork,
+        public CustomerApplicationService(IUnitOfWork unitOfWork,
             ICustomerDomainService customerDomainService)
         {
             _unitOfWork = unitOfWork;

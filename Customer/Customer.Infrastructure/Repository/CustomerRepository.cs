@@ -1,6 +1,5 @@
 ﻿namespace Customer.Infrastructure.Repository
 {
-    using Common.Infrastructure.Repository;
     using Customer.Domain.Repository;
     using Customer.Domain.Entity;
 

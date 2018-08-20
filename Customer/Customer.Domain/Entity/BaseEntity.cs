@@ -1,4 +1,4 @@
-﻿namespace Common.Domain.Entity
+﻿namespace Customer.Domain.Entity
 {
     using System;
 

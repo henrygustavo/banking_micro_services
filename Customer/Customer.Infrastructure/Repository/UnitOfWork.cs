@@ -2,11 +2,11 @@
 {
     using Customer.Domain.Repository;
 
-    public class CustomerUnitOfWork : ICustomerUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly CustomerContext _context;
 
-        public CustomerUnitOfWork(CustomerContext context)
+        public UnitOfWork(CustomerContext context)
         {
             _context = context;
             Customers = new CustomerRepository(_context);

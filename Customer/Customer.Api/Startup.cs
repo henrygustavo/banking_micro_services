@@ -32,7 +32,7 @@
             
             services.AddScoped<ICustomerDomainService, CustomerDomainService>();
             
-            services.AddScoped<ICustomerUnitOfWork, CustomerUnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<DbInitializer>();
             services.AddCors(options =>

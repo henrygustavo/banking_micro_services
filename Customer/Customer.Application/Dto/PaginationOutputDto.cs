@@ -1,4 +1,4 @@
-﻿namespace Common.Application.Dto
+﻿namespace Customer.Application.Dto
 {
     using System.Collections;
     using System;

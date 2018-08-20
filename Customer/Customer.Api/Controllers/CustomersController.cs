@@ -1,6 +1,6 @@
 ﻿namespace Customer.Api.Controllers
 {
-    using Common.Application.Dto;
+    using Customer.Application.Dto;
     using Customer.Application.Service;
     using Microsoft.AspNetCore.Mvc;
 

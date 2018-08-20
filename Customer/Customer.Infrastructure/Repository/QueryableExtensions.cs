@@ -1,4 +1,4 @@
-﻿namespace Common.Domain.Repository
+﻿namespace Customer.Domain.Repository
 {
     using System;
     using System.Linq;

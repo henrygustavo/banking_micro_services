@@ -1,6 +1,6 @@
 ﻿namespace Customer.Domain.Service
 {
-    public class ICustomerDomainService
+    public interface ICustomerDomainService
     {
     }
 }

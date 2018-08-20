@@ -1,9 +1,10 @@
 ﻿namespace Customer.Domain.Repository
 {
-    using Common.Domain.Repository;
+    using System;
 
-    public interface ICustomerUnitOfWork : IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         ICustomerRepository Customers { get; }
+        int Complete();
     }
 }
