@@ -11,9 +11,25 @@
         }
       ],
       "UpstreamPathTemplate": "/customers",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/auth",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/auth",
       "UpstreamHttpMethod": [ "Get" ]
     }
 
-  ],  
-    "GlobalConfiguration": {}  
-}  
+  ],
+  "GlobalConfiguration": {}
+}

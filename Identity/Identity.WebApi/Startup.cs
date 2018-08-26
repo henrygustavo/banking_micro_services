@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-
-namespace Identity.WebApi
+﻿namespace Identity.WebApi
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -23,6 +17,7 @@ namespace Identity.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<Controllers.Audience>(Configuration.GetSection("Audience"));
             services.AddMvc();
         }
 
@@ -34,7 +29,14 @@ namespace Identity.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            var options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("index.html");
+
+            app.UseCors("AllowFromAll")//always berofe "UseMvc"
+               .UseMvc()
+               .UseDefaultFiles(options)
+               .UseStaticFiles();
         }
     }
 }

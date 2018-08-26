@@ -10,6 +10,9 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.IdentityModel.Tokens;
+    using System;
+    using System.Text;
 
     public class Startup
     {
@@ -24,16 +27,42 @@
         {
             services.AddDbContext<CustomerContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+
             services.AddScoped<ICustomerApplicationService, CustomerApplicationService>();
-            
+
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            
+
             services.AddScoped<ICustomerDomainService, CustomerDomainService>();
-            
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<DbInitializer>();
+
+            var audienceConfig = Configuration.GetSection("Audience");
+
+            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(audienceConfig["Secret"]));
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = signingKey,
+                ValidateIssuer = true,
+                ValidIssuer = audienceConfig["Iss"],
+                ValidateAudience = true,
+                ValidAudience = audienceConfig["Aud"],
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero,
+                RequireExpirationTime = true,
+            };
+
+            services.AddAuthentication(o =>
+            {
+                o.DefaultAuthenticateScheme = "TestKey";
+            }).AddJwtBearer("TestKey", x =>
+                    {
+                        x.RequireHttpsMetadata = false;
+                        x.TokenValidationParameters = tokenValidationParameters;
+                    });
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowFromAll",
@@ -61,7 +90,8 @@
             options.DefaultFileNames.Add("index.html");
 
             app.UseCors("AllowFromAll")//always berofe "UseMvc"
-               .UseMvc()
+             .UseAuthentication()
+                .UseMvc()
                .UseDefaultFiles(options)
                .UseStaticFiles();
 

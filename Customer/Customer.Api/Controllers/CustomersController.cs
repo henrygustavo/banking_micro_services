@@ -2,10 +2,13 @@
 {
     using Customer.Application.Dto;
     using Customer.Application.Service;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     [Produces("application/json")]
     [Route("api/customers")]
+    [Authorize(AuthenticationSchemes = "TestKey")]
     public class CustomersController : Controller
     {
         private readonly ICustomerApplicationService _customerApplicationService;

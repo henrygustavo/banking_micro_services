@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-
-namespace Identity.WebApi
+﻿namespace Identity.WebApi
 {
+    using Microsoft.AspNetCore;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+
     public class Program
     {
         public static void Main(string[] args)
@@ -18,8 +12,15 @@ namespace Identity.WebApi
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+             WebHost.CreateDefaultBuilder(args).ConfigureAppConfiguration((context, builder) =>
+             {
+                 IHostingEnvironment env = context.HostingEnvironment;
+                 builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).
+                    AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true,
+                                                                      reloadOnChange: true)
+                    .AddEnvironmentVariables();
+             })
+                 .UseStartup<Startup>()
+                 .Build();
     }
 }
