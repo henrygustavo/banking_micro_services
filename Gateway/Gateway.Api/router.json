@@ -13,8 +13,15 @@
       "UpstreamPathTemplate": "/customers",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "TestKey",
+        "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 1
       }
     },
     {

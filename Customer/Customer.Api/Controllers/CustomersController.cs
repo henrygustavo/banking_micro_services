@@ -8,7 +8,7 @@
 
     [Produces("application/json")]
     [Route("api/customers")]
-    [Authorize(AuthenticationSchemes = "TestKey")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CustomersController : Controller
     {
         private readonly ICustomerApplicationService _customerApplicationService;

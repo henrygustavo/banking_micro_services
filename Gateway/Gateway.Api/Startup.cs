@@ -9,6 +9,7 @@
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
     using System;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
 
     public class Startup
     {
@@ -40,9 +41,9 @@
 
             services.AddAuthentication(o =>
             {
-                o.DefaultAuthenticateScheme = "TestKey";
+                o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-                    .AddJwtBearer("TestKey", x =>
+                    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, x =>
                     {
                         x.RequireHttpsMetadata = false;
                         x.TokenValidationParameters = tokenValidationParameters;

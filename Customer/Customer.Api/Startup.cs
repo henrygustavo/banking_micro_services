@@ -5,6 +5,7 @@
     using Customer.Domain.Repository;
     using Customer.Domain.Service;
     using Customer.Infrastructure.Repository;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
@@ -56,8 +57,8 @@
 
             services.AddAuthentication(o =>
             {
-                o.DefaultAuthenticateScheme = "TestKey";
-            }).AddJwtBearer("TestKey", x =>
+                o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, x =>
                     {
                         x.RequireHttpsMetadata = false;
                         x.TokenValidationParameters = tokenValidationParameters;
