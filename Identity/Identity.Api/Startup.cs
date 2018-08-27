@@ -1,4 +1,4 @@
-﻿namespace Identity.WebApi
+﻿namespace Identity.Api
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;

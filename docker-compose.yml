@@ -16,12 +16,46 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
     container_name: customerapi
     ports:
-      - "5100:80"
+      - "5001:80"
     networks:
       - backend
       - frontend 
     depends_on:
       - mssqlserver
+
+  identity:
+    image: banking/identity
+    build: 
+      context: ./identity
+      dockerfile: Dockerfile
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+    container_name: identityapi
+    ports:
+      - "5002:80"
+    networks:
+      - backend
+      - frontend 
+    depends_on:
+      - mssqlserver
+
+  gateway:
+    image: banking/gateway
+    build: 
+      context: ./gateway
+      dockerfile: Dockerfile
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+    container_name: gatewayapi
+    ports:
+      - "5000:80"
+    networks:
+      - backend
+      - frontend 
+    depends_on:
+      - mssqlserver
+      - customer
+      - identity
       
   mssqlserver:
     image: "microsoft/mssql-server-linux"

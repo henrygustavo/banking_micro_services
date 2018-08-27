@@ -15,15 +15,13 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    },
-    "Gateway.Api": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:9000/"
+    }
+  },
+  "Production": {
+    "commandName": "IISExpress",
+    "launchBrowser": true,
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Production"
     }
   }
 }

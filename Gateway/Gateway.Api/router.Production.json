@@ -7,7 +7,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 9001
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/customers",
@@ -30,7 +30,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 9002
+          "Port": 5002
         }
       ],
       "UpstreamPathTemplate": "/auth",

@@ -17,6 +17,7 @@
                  builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                     .AddJsonFile("router.json", optional: false, reloadOnChange: true)
+                    .AddJsonFile($"router.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                     .AddEnvironmentVariables();
              })
                  .UseStartup<Startup>()

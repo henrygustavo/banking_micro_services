@@ -10,6 +10,7 @@
     using System.Text;
     using System;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.Extensions.Logging;
 
     public class Startup
     {
@@ -64,7 +65,7 @@
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public async void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public async void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -80,6 +81,8 @@
               .UseAuthentication()
               .UseDefaultFiles(options)
               .UseStaticFiles();
+
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
             await app.UseOcelot();
         }

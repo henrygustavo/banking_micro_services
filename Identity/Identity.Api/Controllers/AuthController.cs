@@ -1,4 +1,4 @@
-﻿namespace Identity.WebApi.Controllers
+﻿namespace Identity.Api.Controllers
 {
     using System;
     using System.IdentityModel.Tokens.Jwt;

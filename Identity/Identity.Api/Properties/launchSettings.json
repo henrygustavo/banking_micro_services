@@ -16,14 +16,12 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Identity.WebApi": {
-      "commandName": "Project",
+    "Production": {
+      "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:9002/"
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
     }
   }
 }
