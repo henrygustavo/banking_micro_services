@@ -91,8 +91,8 @@
             options.DefaultFileNames.Add("index.html");
 
             app.UseCors("AllowFromAll")//always berofe "UseMvc"
-             .UseAuthentication()
-                .UseMvc()
+               .UseAuthentication()
+               .UseMvc()
                .UseDefaultFiles(options)
                .UseStaticFiles();
 

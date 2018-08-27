@@ -34,9 +34,9 @@
             options.DefaultFileNames.Add("index.html");
 
             app.UseCors("AllowFromAll")//always berofe "UseMvc"
-               .UseMvc()
-               .UseDefaultFiles(options)
-               .UseStaticFiles();
+                .UseMvc()
+                .UseDefaultFiles(options)
+                .UseStaticFiles();
         }
     }
 }

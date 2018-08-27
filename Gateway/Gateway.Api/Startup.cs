@@ -77,10 +77,9 @@
             options.DefaultFileNames.Add("index.html");
 
             app.UseCors("AllowFromAll")//always berofe "UseMvc"
-              .UseMvc()
-              .UseAuthentication()
-              .UseDefaultFiles(options)
-              .UseStaticFiles();
+                           .UseMvc()
+                           .UseDefaultFiles(options)
+                           .UseStaticFiles();
 
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
