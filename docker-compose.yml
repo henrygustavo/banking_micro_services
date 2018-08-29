@@ -38,6 +38,7 @@ services:
       - frontend 
     depends_on:
       - mssqlserver
+      - rabbitmq
 
   gateway:
     image: banking/gateway
@@ -67,3 +68,16 @@ services:
     environment:
       - SA_PASSWORD=Str0ngPassword!
       - ACCEPT_EULA="Y"
+
+  rabbitmq:
+     image: rabbitmq:3-management
+     container_name: rabbitmq
+     hostname: myrabbitmq
+     ports:
+        - "15672:15672"
+        - "5672:5672"
+        - "5671:5671"
+     volumes:
+        - ~/rabbitmq:/var/lib/rabbitmq/mnesia   
+     networks:
+       - backend 

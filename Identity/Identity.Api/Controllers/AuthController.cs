@@ -4,6 +4,8 @@
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
     using System.Text;
+    using Common.Api.Messaging;
+    using MassTransit;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Options;
     using Microsoft.IdentityModel.Tokens;
@@ -13,10 +15,12 @@
     public class AuthController : Controller
     {
         private IOptions<Audience> _settings;
+        private IBus _bus;
 
-        public AuthController(IOptions<Audience> settings)
+        public AuthController(IOptions<Audience> settings, IBus bus)
         {
             this._settings = settings;
+            this._bus = bus;
         }
 
         [HttpGet]
@@ -71,6 +75,14 @@
                 return Json("");
             }
         }
+
+        [HttpPost]
+
+        public IActionResult Post([FromBody] User user)
+        {
+            _bus.Publish(new UserCompledEvent(user.UserId)).Wait();
+            return Ok();
+        }
     }
 
     public class Audience
@@ -78,5 +90,14 @@
         public string Secret { get; set; }
         public string Iss { get; set; }
         public string Aud { get; set; }
+    }
+
+    public  class User
+    {
+        public int UserId { get; set; }
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
     }
 }
